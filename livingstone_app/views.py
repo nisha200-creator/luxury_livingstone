@@ -121,6 +121,26 @@ def cart(request):
 def wishlist(request):
     return render(request, 'wishlist.html')
 
+# def search(request):
+#     return render(request, 'search_list.html')
+
+
+def search_products(request):
+    query = request.GET.get('q')
+    products = []
+
+    if query:
+        products = Product.objects.filter(
+            Q(title__icontains=query) |
+            Q(category__icontains=query) |
+            Q(subcategory__icontains=query)
+        )
+
+    return render(request, 'search_list.html', {'products': products, 'query': query})
+
+
+
+
 def track_order(request):
     return render(request, 'track_order.html')
 

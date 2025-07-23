@@ -121,6 +121,10 @@ class Product(models.Model):
     size = models.CharField(max_length=10, choices=SIZE_CHOICES, blank=True, null=True)
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
 
+
+
+
+
     # add for inventorhy management
     quantity = models.PositiveIntegerField(default=0, blank=True, null=True)
     subcategory = models.CharField(max_length=30, choices=SUBCATEGORY_CHOICES)

@@ -98,43 +98,18 @@
             </ul>
           </nav>
 
-          
-           <div class="header_content ml-auto">
-            <div class="search header_search">
-              <form action="#">
-                <input type="search" class="search_input" required="required" />
-                <button type="submit" id="search_button" class="search_button">
-                  {% comment %} <img src="{% static 'images/magnifying-glass.svg' %}" alt="" /> {% endcomment %}
-                </button>
-              </form>
-            </div>
+           <a href="{% url 'search' %}">
+              <div class="header_content ml-auto" style="cursor: pointer;"> 
+               <div class="search header_search">
+                 <form action="#">
+                   {% comment %} <input type="search" class="search_input" required="required" />
+                   button type="submit" id="search_button" class="search_button"> {% endcomment %}
+                     <img src="{% static 'images/magnifying-glass.svg' %}" alt="" />
+                   </button>
+                 </form>
+               </div>
+            </a>
 
-
-            {% comment %} <div class="header_content ml-auto">
-              <div class="search header_search ">
-                <form onsubmit="return false;">
-                  <input
-                    type="search"
-                    id="search_input"
-                    class="search_input"
-                    placeholder="Search categories..."
-                    required
-                    oninput="filterCategories()"
-                  />
-                  <button style="    width: 48px;" type="submit" id="search_button" class="search_button">
-                    <img src="{% static 'images/magnifying-glass.svg' %}" alt="" />
-                 </button>
-                </form>
-                <ul id="searchSuggestions" class="search-suggestions list-unstyled mt-2"></ul>
-              </div>
-            </div> {% endcomment %}
-
-
-            
-
-
-            
-            
             <div class="shopping">
               <a href="{% url 'cart' %}">
                 <div class="cart">
