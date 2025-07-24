@@ -280,7 +280,6 @@ const slides = document.querySelectorAll('.slide');
 const pagination = document.getElementById('pagination');
 const pauseBtn = document.getElementById('pauseBtn');
 
-
 let index = 0;
 let autoSlide = true;
 let slideInterval = setInterval(() => {
@@ -384,4 +383,3 @@ function updateWishlistCount() {
 
 
 
-/

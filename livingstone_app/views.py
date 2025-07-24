@@ -121,23 +121,51 @@ def cart(request):
 def wishlist(request):
     return render(request, 'wishlist.html')
 
-# def search(request):
-#     return render(request, 'search_list.html')
+
 
 
 def search_products(request):
-    query = request.GET.get('q')
-    products = []
+    query = request.GET.get('q', '')
+    sort = request.GET.get('sort', 'relevance')
+    selected_price = request.GET.get('price')
+    selected_subcategory = request.GET.get('subcategory')
+
+    products = Product.objects.all()
 
     if query:
-        products = Product.objects.filter(
+        products = products.filter(
             Q(title__icontains=query) |
             Q(category__icontains=query) |
             Q(subcategory__icontains=query)
         )
 
-    return render(request, 'search_list.html', {'products': products, 'query': query})
+    if selected_subcategory:
+        products = products.filter(subcategory=selected_subcategory)
 
+    if selected_price:
+        try:
+            min_price, max_price = map(int, selected_price.split('-'))
+            products = products.filter(price__gte=min_price, price__lte=max_price)
+        except ValueError:
+            pass
+
+    
+    if sort == 'low_to_high':
+        products = products.order_by('price')
+    elif sort == 'high_to_low':
+        products = products.order_by('-price')
+    elif sort == 'newest':
+        products = products.order_by('-id')
+    else:  
+        products = products.order_by('title')
+
+    return render(request, 'search_list.html', {
+        'products': products,
+        'query': query,
+        'sort': sort,
+        'selected_price': selected_price,
+        'selected_subcategory': selected_subcategory
+    })
 
 
 
@@ -169,7 +197,7 @@ def sign_in(request):
         if user is not None:
             if user.userprofile.is_verified:
                 login(request, user)
-                return redirect('index')  #  Redirects to homepage
+                return redirect('index')  
             else:
                 messages.error(request, 'Please verify your account first.')
         else:
@@ -315,7 +343,7 @@ def product_list(request, category=None, subcategory=None):
     if category:
         products = products.filter(category=category)
 
-    # Only filter by subcategory if it's not "all"
+    # Only filter by subcategory if it's not all
     if subcategory and subcategory.lower() != 'all':
         products = products.filter(subcategory=subcategory)
 

@@ -95,6 +95,7 @@ class Product(models.Model):
     ('belt_men', 'Belt'),
 
     # Women
+    ('women_tshirt', 'women tshirt'),
     ('bag', 'Bag'),
     ('women_belt', 'Women Belt'),
 
