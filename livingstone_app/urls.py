@@ -19,7 +19,11 @@ urlpatterns = [
     path('wishlist/', views.wishlist, name='wishlist'), 
 
     path('search/', views.search_products, name='search'),
-    path('refund-policy/', views.refund_policy, name='refund_policy'),
+    path('privacy_policy/', views.privacy_policy, name='privacy-policy'),
+
+    path('refund_policy/', views.refund_policy, name='refund-policy'),
+    path('tearms_policy/', views.tearms_policy, name='tearms-policy'),
+
 
     
 

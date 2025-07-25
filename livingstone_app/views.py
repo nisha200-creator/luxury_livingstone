@@ -186,9 +186,14 @@ def kashnaar_view(request):
 #     return render(request, 'guest_checkout.html')
 
 
+def privacy_policy(request):
+    return render(request, 'privacy Policy.html')
 
 def refund_policy(request):
-    return render(request, 'Refund Policy.html')
+    return render(request, 'refund policy.html') 
+def tearms_policy(request):
+    return render(request, 'tearms policy.html')   
+
 
 
 
