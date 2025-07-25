@@ -125,7 +125,17 @@ p.policy{
 }
 
 
-{% comment %} footer {% endcomment %}
+.A {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.A img {
+  height: 150px;
+  width: 150px;
+}
+
 
 
 
@@ -151,9 +161,7 @@ p.policy{
       <h1 class="policy">PRIVACY POLICY</h1>
       <hr class="policy-line" />
 
-      {% comment %} <div class="A" />
-      <img src="https://res.cloudinary.com/dp2p9p3pm/image/upload/v1602857231/Untitled-3-01_qr2fcp.png" alt='word A'>
-    </div> {% endcomment %}
+      
 
     <h2 class="policy">SECTION 1 – WHAT DO WE DO WITH YOUR INFORMATION?</h2>
     <p class="policy">When you purchase something from our store, as part of the buying and selling process, we collect the personal information you give us such as your name, address and email address.
@@ -215,6 +223,9 @@ If our store is acquired or merged with another company, your information may be
 </h2>
     <p class="policy">If you would like to: access, correct, amend or delete any personal information we have about you, register a complaint, or simply want more information contact our Privacy Compliance Officer at contact@johnnette.com or by mail at JOHNNETTE TECHNOLOGIES PRIVATE LIMITED.</p>
   
+    <div class="A" />
+      <img src="{% static 'images/favicon.png' %} " alt='word A' /> 
+    </div> 
   </div>
 
 

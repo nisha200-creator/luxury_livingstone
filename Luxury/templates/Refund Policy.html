@@ -119,13 +119,21 @@ p.policy{
   width: 100%;
   }
  
-  
-
-
 }
 
 
-{% comment %} footer {% endcomment %}
+.A {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.A img {
+  height: 150px;
+  width: 150px;
+}
+
+
 
 
 
@@ -151,9 +159,9 @@ p.policy{
       <h1 class="policy">Refund & Shipping Policy</h1>
       <hr class="policy-line" />
 
-      {% comment %} <div class="A" />
-      <img src="https://res.cloudinary.com/dp2p9p3pm/image/upload/v1602857231/Untitled-3-01_qr2fcp.png" alt='word A'>
-    </div> {% endcomment %}
+      <div class="A" />
+      <img src="{% static 'images/favicon.png' %} " alt='word A' /> 
+    </div> 
 
     <h2 class="policy">Shipping Policies</h2>
     <p class="policy">To ensure that your order reaches you in the fastest time and in good condition, we only ship through reputed courier agencies.

@@ -35,6 +35,81 @@
     <link rel="stylesheet" href="{% static 'styles/main_styles.css' %}" />
     <link rel="stylesheet" href="{% static 'styles/responsive.css' %}" />
 
+
+    <style>
+
+{% comment %} #loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:gray;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+
+  #loader-wrapper.fade-out {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  #loader-img {
+    width: 80px;
+    height: 80px;
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 1; }
+  } {% endcomment %}
+
+
+  #loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+
+  #loader-wrapper.fade-out {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .footer_logo a {
+    font-family: 'Lucida', serif;
+    font-size: 5vw;
+    text-transform: uppercase;
+    line-height: 1;
+    text-align: center;
+    background: linear-gradient(90deg, rgba(186,148,62,1) 0%, rgba(236,172,32,1) 20%, rgba(186,148,62,1) 39%, rgba(249,244,180,1) 50%, rgba(186,148,62,1) 60%, rgba(236,172,32,1) 80%, rgba(186,148,62,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;	
+    animation: shine 3s infinite;
+    background-size: 200%;
+    background-position: left;
+  }
+
+  @keyframes shine {
+    0% { background-position: left; }
+    100% { background-position: right; }
+  }
+
+    </style>
+
     {% block meta_tags %}
 
     {% endblock meta_tags %}
@@ -62,6 +137,15 @@
 
 
 <body >
+  <div id="loader-wrapper">
+  <div class="footer_logo">
+    <a href="#">LIVINGSTONE LUXURY</a>
+  </div>
+</div>
+
+  {% comment %} <div id="loader-wrapper">
+  <img id="loader-img" src="{% static 'images/favicon.png' %}" alt="Loading..." />
+</div> {% endcomment %}
 
     <div class="super_container">
       <div class="top_header_bar">
@@ -345,7 +429,7 @@
         </div>
 
         <div class="footer-bottom">
-          <div class="footer_logo"><a href="#">LIVINGSTONE LUXURY</a></div>
+          <div style="background-color: black;" class="footer_logo"><a href="#">LIVINGSTONE LUXURY</a></div>
           <div class="social-icons">
             {% comment %} <a href="#"><i class="fab fa-pinterest"></i></a> {% endcomment %}
             <a href="#"><i class="fab fa-linkedin"></i></a>
@@ -363,5 +447,26 @@
     {% endblock page_js %}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    {% comment %} <script>
+  window.addEventListener("load", function () {
+    const loader = document.getElementById("loader-wrapper");
+    loader.classList.add("fade-out");
+    setTimeout(() => {
+      loader.style.display = "none";
+    }, 600); 
+  });
+</script> {% endcomment %}
+
+<script>
+  window.addEventListener("load", function () {
+    const loader = document.getElementById("loader-wrapper");
+    loader.classList.add("fade-out");
+    setTimeout(() => {
+      loader.style.display = "none";
+    }, 600);
+  });
+</script>
+
 </body>
 </html>

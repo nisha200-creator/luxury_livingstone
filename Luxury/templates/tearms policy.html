@@ -118,14 +118,20 @@ p.policy{
  .container{
   width: 100%;
   }
- 
-  
-
-
 }
 
 
-{% comment %} footer {% endcomment %}
+.A {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.A img {
+  height: 150px;
+  width: 150px;
+}
+
 
 
 
@@ -151,9 +157,9 @@ p.policy{
       <h1 class="policy">TERMS OF SERVICE</h1>
       <hr class="policy-line" />
 
-      {% comment %} <div class="A" />
-      <img src="https://res.cloudinary.com/dp2p9p3pm/image/upload/v1602857231/Untitled-3-01_qr2fcp.png" alt='word A'>
-    </div> {% endcomment %}
+      <div class="A" />
+      <img src="{% static 'images/favicon.png' %} " alt='word A' /> 
+    </div> 
 
     <h2 class="policy">OVERVIEW</h2>
     <p class="policy">This website is operated by “JOHNNETTE TECHNOLOGIES PRIVATE LIMITED”. Throughout the site, the terms “we”, “us” and “our” refer to JOHNNETTE TECHNOLOGIES PRIVATE LIMITED. JOHNNETTE TECHNOLOGIES PRIVATE LIMITED offers this website, including all information, tools and services available from this site to you, the user, conditioned upon your acceptance of all terms, conditions, policies and notices stated here.
