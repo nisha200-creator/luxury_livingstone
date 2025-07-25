@@ -931,10 +931,18 @@ section
   height: 100vh;
   background: #ffffff;
   z-index: 101;
-  padding: 100px 30px 30px 30px;
+  padding: 72px 30px 30px 30px;
   overflow-y: auto;
   transition: right 0.3s ease;
 }
+
+
+@media only screen and (max-width: 575px) {
+    .menu .logo {
+         margin-bottom: 0px !important;
+    }
+  }
+
 
 .menu.active {
   right: 0;

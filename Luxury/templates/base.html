@@ -20,8 +20,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
 
-    {% comment %} <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
-    <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon"> {% endcomment %}
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon2.ico' %}">
+    <link rel="shortcut icon" href="{% static 'images/favicon2.ico' %}" type="image/x-icon">
+
+
 
 
     <link rel="stylesheet" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}" />
@@ -64,10 +66,10 @@
     <div class="super_container">
       <div class="top_header_bar">
         <div class="top_bar_container">
-          <span class="top_bar_left">Free Standard Delivery <a href="#">Details</a></span>
+          <span><i class="fas fa-phone" style="color: #ffffff;"></i>  7428684519</span>
           <div class="top_bar_right">
-              <span><i class="fas fa-globe"></i> IN English</span>
-              <span><i class="fas fa-map-marker-alt"></i> Find a store</span>
+              {% comment %} <span><i class="fas fa-globe"></i> IN English</span> {% endcomment %}
+              <span><i class="fas fa-envelope" style="color: #ffffff;"></i> contact@johnnette.com</span>
           </div>
         </div>
       </div>
@@ -181,8 +183,9 @@
             <a href="{% url 'index' %} " style="color: black; font-size: 18px;"> LIVINGSTONE LUXURY</a> 
           </div>
           <div class="menu_icons">
-            <img src="{% static 'images/magnifying-glass.svg' %}" alt="" />  
-            <img src="{% static 'images/shopping-bag.svg' %}" alt="" />
+
+          <a href="{% url 'search' %}"><img src="{% static 'images/magnifying-glass.svg' %}" alt="" /></a>   
+          <a href="{% url 'cart' %}"><img src="{% static 'images/shopping-bag.svg' %}" alt="" /></a>  
             <img src="{% static 'images/close_img.png' %}" alt="" />
           </div>
         </div>
@@ -238,10 +241,10 @@
           </ul>          
         </nav>
         <div class="menu_footer">
-          <ul>
+          {% comment %} <ul>
             <li><i class="icon-map-marker"></i> Stores</li>
             <li><i class="icon-globe"></i> In English</li>
-          </ul>
+          </ul> {% endcomment %}
         </div>
       </div>
 <!-- side menu with hamburger END -->
@@ -307,12 +310,7 @@
               <li><a href="{% url 'product_list' category='accessories' subcategory='accessory_beer_mug' %}">Beer Mug</a></li>
             </ul>
 
-            <div class="footer-column">
-               <h4>Kashnaar</h4>
-              <ul>
-                 <li><a href="{% url 'kashnaar' %}">Candles</a></li>
-              </ul>
-             </div>
+            
           </div>
           
 
@@ -320,7 +318,14 @@
           
 
           <div class="footer-column newsletter">
-            <h3>
+
+            <div class="footer-column">
+               <h4>Kashnaar</h4>
+              <ul>
+                 <li><a href="{% url 'kashnaar' %}">Candles</a></li>
+              </ul>
+             </div>
+            {% comment %} <h3>
                 SIGN UP TO RECEIVE THE LATEST NEWS, SPECIAL OFFERS AND/OR
                 EXCLUSIVE EVENTS RELATING TO LIVINGSTONE LUXURY PRODUCTS AND SERVICES,
                 BY E-MAIL OR TARGETED SOCIAL MEDIA ADS. BY SIGNING UP, YOU
@@ -331,11 +336,11 @@
               <input type="email" placeholder="ENTER EMAIL ADDRESS" />
               <button>SUBMIT</button>
             </div>
-            <p class="unsubscribe-text">
+           <p class="unsubscribe-text">
               You may unsubscribe at any time by clicking on the unsubscribe
               link in each e-mail. For more information, please read Ralph
               Lauren Europe Sàrl’s <a href="#">Privacy Policy</a>.
-            </p>
+            </p>  {% endcomment %}
           </div>
         </div>
 
