@@ -1,0 +1,234 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{% endblock title %}
+{% block description %}{% endblock description %}
+{% block keywords %}{% endblock keywords %}
+
+
+
+
+{% block page_css %}
+
+<link rel="stylesheet" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link href="{% static 'plugins/malihu-custom-scrollbar/jquery.mCustomScrollbar.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/jquery-ui-1.12.1.custom/jquery-ui.css' %}">
+<link rel="stylesheet" href="{% static 'styles/main_styles.css' %}" />
+<link rel="stylesheet" href="{% static 'styles/responsive.css' %}" />
+
+
+{% comment %} extra CSS for nav bar color according to page {% endcomment %}
+<style>
+
+    section {
+  padding: 10vw;
+  height: 100%;
+  min-height: 500vh;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: visible;
+}
+
+.credit {
+  text-align: center;
+  z-index: 999;
+  font-size: 0.8rem;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+.credit a {
+  color: gold;
+  font-family: "Lato", sans-serif;
+  text-decoration: none;
+  font-size: 24px;
+  transition: 1s;
+}
+.credit a:hover {
+  font-size: 30px;
+}
+@media (max-width: 480px) {
+  .credit {
+    margin-bottom: 90px;
+    color: #fff;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-weight: 800;
+  margin: 2rem auto;
+  font-size: clamp(3vw, 2rem, 4rem);
+  text-align: center;
+  z-index: 999;
+  max-width: 800px;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  place-items: center;
+}
+
+.gallery {
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: visible;
+}
+@media (max-width: 768px) {
+  .gallery {
+    width: 160%;
+  }
+}
+@media (max-width: 480px) {
+  .gallery {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.col {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100%;
+  align-self: flex-start;
+  justify-self: flex-start;
+}
+
+.col:nth-child(2) {
+  align-self: flex-end;
+  justify-self: flex-end;
+}
+
+.image {
+  width: 100%;
+  filter: saturate(0);
+  padding: 1rem;
+}
+
+.image:hover {
+  z-index: 99999999999 !important;
+  filter: saturate(1);
+}
+
+img {
+  transition: 0.3s ease-out;
+  overflow: hidden;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+  width: 100%;
+  cursor: pointer;
+}
+@media (max-width: 480px) {
+  img {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    place-items: center;
+    left: 50%;
+    top: 50%;
+    transform: translate(50%, 50%);
+  }
+}
+
+
+
+
+</style>
+
+
+{% endblock page_css %}
+
+
+
+
+{% block content %}
+
+<section>
+   <h1>Welcome To A$AP Rocky's World Of Fashion</h1>
+  
+  <h2 class="credit"><a href="https://www.github.com/E-Benny/" target="_blank">Made by E-BENNY</a></h2>
+</section>
+
+<!-- Pictures below -->
+<div class="gallery">
+  <div class="col">
+    <div class="image">
+    <img src="https://i.pinimg.com/564x/e9/cf/bd/e9cfbd4744b358aab92e3f8b1fa76541.jpg" alt="A$AP Rocky">
+  </div>
+  <div class="image">
+    <img src="https://i.pinimg.com/564x/c5/ca/8e/c5ca8e25f9ba91a061d49aea89bd74ee.jpg" alt="A$AP Rocky">
+  </div>
+  <div class="image">
+    <img src="https://i.pinimg.com/564x/0a/d5/bd/0ad5bdf3733ebeaf64cdc70e4d9c6722.jpg" alt="A$AP Rocky">
+  </div>
+  </div>
+<div class="col">
+  <div class="image">
+    <img src="https://i.pinimg.com/564x/be/c3/01/bec3010b412918e25edb985da8c3b23d.jpg" alt="A$AP Rocky">
+  </div>
+  <div class="image">
+    <img src="https://i.pinimg.com/564x/fc/82/50/fc82502730c9ab38debaf697ebc30ec7.jpg" alt="A$AP Rocky">
+  </div>
+  <div class="image">
+    <img src="https://i.pinimg.com/564x/06/5a/bf/065abfdd2e6468c5446f4c7295081f54.jpg" alt="A$AP Rocky">
+  </div>
+</div>
+<div class="col">
+  <div class="image">
+    <img src="https://i.pinimg.com/564x/ee/06/f2/ee06f2f9fb11c412e53b3ab6cf48308e.jpg" alt="A$AP Rocky">
+  </div>
+  <div class="image">
+    <img src="https://i.pinimg.com/564x/14/d2/4a/14d24a4c3a0f4dbe6d1154c5ac7206e0.jpg" alt="A$AP Rocky">
+  </div>
+  <div class="image">
+    <img src="https://i.pinimg.com/564x/18/f7/71/18f771cf2e75e4b38f0fd8b161ce83bc.jpg" alt="A$AP Rocky">
+  </div>
+</div>
+</div>
+
+
+{% endblock content %}
+{% block page_js %}
+
+
+
+
+
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
+<script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
+<script src="{% static 'plugins/easing/easing.js' %}"></script>
+<script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+<script src="{% static 'plugins/colorbox/jquery.colorbox-min.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+
+
+
+
+
+</body>
+{% endblock page_js %}
+</html>

@@ -182,9 +182,13 @@ def kashnaar_view(request):
     return render(request, 'kashnaar.html')
 
 
-def guest_checkout(request):
-    return render(request, 'guest_checkout.html')
+# def guest_checkout(request):
+#     return render(request, 'guest_checkout.html')
 
+
+
+def refund_policy(request):
+    return render(request, 'Refund Policy.html')
 
 
 

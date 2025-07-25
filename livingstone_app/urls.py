@@ -19,6 +19,9 @@ urlpatterns = [
     path('wishlist/', views.wishlist, name='wishlist'), 
 
     path('search/', views.search_products, name='search'),
+    path('refund-policy/', views.refund_policy, name='refund_policy'),
+
+    
 
 
 
@@ -41,8 +44,6 @@ urlpatterns = [
     path('profile/', views.profile_settings_view, name='profile_settings'),
     path('kashnaar/', views.kashnaar_view, name='kashnaar'),
     path('accessories/', views.accessories, name='accessories'),
-
-    
     path('checkout-final/', views.checkout_final, name='checkout_final'),
     
     

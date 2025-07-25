@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="{% static 'styles/main_styles.css' %}" />
   <link rel="stylesheet" href="{% static 'styles/responsive.css' %}" />
+  
 
 
   
@@ -30,25 +31,56 @@
 
 {% block content %}
   <body>
+      {% comment %} <div class="gallery">
+        <div class="firstcol">
+          <div class="image">
+          <img class="slide_img" src="{% static 'images/beermug1.png' %}" alt="" />
+        </div>
+        <div class="image">
+          <img class="slide_img" src="{% static 'images/beermug1.png' %}" alt="" />
+        </div>
+        <div class="image">
+          <img class="slide_img" src="{% static 'images/beermug1.png' %}" alt="" />
+        </div>
+        </div>
+        
+      <div class="firstcol">
+        <div class="image">
+          <img class="slide_img" src="{% static 'images/mnt15.png' %}" alt="" />
+        </div>
+        <div class="image">
+          <img class="slide_img" src="{% static 'images/mnt15.png' %}" alt="" />
+        </div>
+        <div class="image">
+          <img class="slide_img" src="{% static 'images/mnt15.png' %}" alt="" />
+        </div>
+      </div>
+
+      <div class="firstcol">
+        <div class="image">
+          <img class="slide_img" src="{% static 'images/tst7.png' %}" alt="" />
+        </div>
+        <div class="image">
+          <img class="slide_img" src="{% static 'images/tst7.png' %}" alt="" />
+        </div>
+        <div class="image">
+          <img class="slide_img" src="{% static 'images/tst7.png' %}" alt="" />
+        </div>
+      </div>
+      </div> {% endcomment %}
 
       <!-- Home -->
 
       <div class="home">
-
-        
         <!-- Home Slider -->
-
         <div class="home_slider_container">
           <div class="owl-carousel owl-theme home_slider">
             <!-- Home Slider Item -->
-
             <div class="owl-item">
-
               <div
                 class="home_slider_background"
                 style="background-image: url('{% static "images/exp4.avif" %}')"
               ></div>
-              
               <div class="home_slider_content">
                 <div class="home_slider_content_inner">
                   <div class="home_slider_title">New Collection</div>
@@ -58,14 +90,11 @@
                   </div>
               </div>
             </div>
-
             <div class="owl-item">
-
               <div
                 class="home_slider_background"
                 style="background-image: url('{% static "images/exp5.avif" %}')"
               ></div>
-              
               <div class="home_slider_content">
                 <div class="home_slider_content_inner">
                   <div class="home_slider_title">New Collection</div>
@@ -75,14 +104,11 @@
                   </div>
               </div>
             </div>
-
             <div class="owl-item">
-
               <div
                 class="home_slider_background"
                 style="background-image: url('{% static "images/exp6.avif" %}')"
               ></div>
-              
               <div class="home_slider_content">
                 <div class="home_slider_content_inner">
                   <div class="home_slider_title">New Collection</div>
@@ -379,6 +405,65 @@
 
 
  {% block page_js %}
+
+ <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+<script>
+  console.clear();
+  gsap.registerPlugin(ScrollTrigger);
+
+  const cols = gsap.utils.toArray(".firstcol");
+
+  cols.forEach((col, i) => {
+    const images = Array.from(col.children);
+    
+    images.forEach((img) => {
+      col.appendChild(img.cloneNode(true));
+      col.appendChild(img.cloneNode(true));
+    });
+
+    const items = Array.from(col.children);
+    const columnHeight = col.scrollHeight;
+    const direction = i % 2 === 0 ? "-=" : "+=";
+
+    const localOffset = { val: 0 };
+
+    items.forEach((item) => {
+      gsap.to(item, {
+        y: direction + (columnHeight / 3),
+        duration: 20,
+        repeat: -1,
+        ease: "none",
+        modifiers: {
+          y: gsap.utils.unitize((y) => {
+            const yNum = parseFloat(y);
+            const mod = columnHeight / 3;
+            return direction === "+=" 
+              ? (yNum - localOffset.val) % mod 
+              : (yNum + localOffset.val) % -mod;
+          }),
+        },
+      });
+    });
+
+    ScrollTrigger.create({
+      trigger: "section",
+      start: "top 50%",
+      end: "bottom 50%",
+      onUpdate: (self) => {
+        const velocity = self.getVelocity();
+        if (velocity !== 0) {
+          gsap.to(localOffset, {
+            val: -velocity / 2000,
+            duration: 0.3,
+            overwrite: true,
+            onComplete: () => localOffset.val = 0
+          });
+        }
+      }
+    });
+  });
+</script>
 
    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
   <script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
