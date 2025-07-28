@@ -36,79 +36,7 @@
     <link rel="stylesheet" href="{% static 'styles/responsive.css' %}" />
 
 
-    <style>
 
-{% comment %} #loader-wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background:gray;
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-  }
-
-  #loader-wrapper.fade-out {
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  #loader-img {
-    width: 80px;
-    height: 80px;
-    animation: pulse 1.5s infinite;
-  }
-
-  @keyframes pulse {
-    0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.2); opacity: 0.5; }
-    100% { transform: scale(1); opacity: 1; }
-  } {% endcomment %}
-
-
-  #loader-wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: black;
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-  }
-
-  #loader-wrapper.fade-out {
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  .footer_logo a {
-    font-family: 'Lucida', serif;
-    font-size: 5vw;
-    text-transform: uppercase;
-    line-height: 1;
-    text-align: center;
-    background: linear-gradient(90deg, rgba(186,148,62,1) 0%, rgba(236,172,32,1) 20%, rgba(186,148,62,1) 39%, rgba(249,244,180,1) 50%, rgba(186,148,62,1) 60%, rgba(236,172,32,1) 80%, rgba(186,148,62,1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;	
-    animation: shine 3s infinite;
-    background-size: 200%;
-    background-position: left;
-  }
-
-  @keyframes shine {
-    0% { background-position: left; }
-    100% { background-position: right; }
-  }
-
-    </style>
 
     {% block meta_tags %}
 
@@ -127,6 +55,58 @@
     {% endblock page_css %}
 
  <style>
+#loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#loader-wrapper.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.footer_logo {
+  width: 100%;
+  text-align: center;
+}
+
+.footer_logo a {
+  font-family: 'Lucida', serif;
+  font-size: clamp(24px, 5vw, 60px);
+  text-transform: uppercase;
+  line-height: 1;
+  text-align: center;
+  background: linear-gradient(
+    90deg,
+    rgba(186,148,62,1) 0%,
+    rgba(236,172,32,1) 20%,
+    rgba(186,148,62,1) 39%,
+    rgba(249,244,180,1) 50%,
+    rgba(186,148,62,1) 60%,
+    rgba(236,172,32,1) 80%,
+    rgba(186,148,62,1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s infinite;
+  background-size: 200%;
+  background-position: left;
+}
+
+@keyframes shine {
+  0% { background-position: left; }
+  100% { background-position: right; }
+}
+
 
 
 </style>
@@ -217,31 +197,6 @@
                   </div>
                 </div>
               </a>
-              {% comment %} <div class="avatar-dropdown-wrapper">
-                <a href="#">
-                  <div class="avatar">
-                    <img src="{% static 'images/avatar.svg' %}" alt="Avatar" />
-                  </div>
-                </a>
-                <div class="dropdown-login">
-                  <form class="login-form">
-                    <h3>Sign In</h3>
-                    <a class="create-account" href="#">CREATE ACCOUNT</a>
-
-                    <input type="email" placeholder="EMAIL ADDRESS *" required />
-                    <input type="password" placeholder="PASSWORD *" required />
-
-                    <a href="#" class="forgot-password">Forgot Password?</a>
-                    <label class="remember-label">
-                      <input type="checkbox" />
-                    Remember me - I want Livingstone Luxury to personalise my shopping experience
-                    </label>
-
-                   <button type="submit" class="sign-in-btn">SIGN IN</button>
-                    <div class="divider">or</div>
-                  </form>
-                </div>
-              </div>  {% endcomment %}
 
             </div>
           </div>
@@ -429,7 +384,7 @@
         </div>
 
         <div class="footer-bottom">
-          <div style="background-color: black;" class="footer_logo"><a href="#">LIVINGSTONE LUXURY</a></div>
+          <div  class="footer_logo"><a href="#">LIVINGSTONE LUXURY</a></div>
           <div class="social-icons">
             {% comment %} <a href="#"><i class="fab fa-pinterest"></i></a> {% endcomment %}
             <a href="#"><i class="fab fa-linkedin"></i></a>

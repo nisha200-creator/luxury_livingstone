@@ -471,20 +471,22 @@ ul
 /* accessories section */
 
 
+
+
 .accesssories_section {
   display: flex;
-  justify-content: center;      
-  align-items: center;          
-  width: 100vw;
-      height: 140vh;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 100vh;
   background: url('../images/back.jpg') center center / cover no-repeat;
+  padding: 40px 20px;
+  box-sizing: border-box;
 }
-
 
 .hero-content {
   width: 45%;
-  height: 600px;
-  /* background-color: rgb(166 130 60); */
   background-color: rgba(166, 130, 60, 0.8) !important;
   display: flex;
   flex-direction: column;
@@ -492,25 +494,22 @@ ul
   align-items: center;
   padding: 40px;
   box-sizing: border-box;
- 
 }
-
 
 .hero-content h1 {
   font-size: 28px;
   letter-spacing: 4px;
   margin: 5px 0;
   text-align: center;
-   color: black;
-    font-weight: 600;
+  color: black;
+  font-weight: 600;
 }
 
 .hero-content h2 {
   font-size: 14px;
   margin: 5px 0 20px;
-  font-weight: 500;
-   color: black;
-    font-weight: 600;
+  font-weight: 600;
+  color: black;
 }
 
 .hero-content p {
@@ -519,18 +518,17 @@ ul
   line-height: 1.6;
   font-size: 15px;
   margin-bottom: 30px;
-   color: black;
-    font-weight: 600;
+  color: black;
+  font-weight: 600;
 }
-
 
 .hero-buttons {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
-   color: black;
-    font-weight: 600;
+  color: black;
+  font-weight: 600;
 }
 
 .hero-buttons a {
@@ -541,32 +539,52 @@ ul
   letter-spacing: 1px;
 }
 
-
 .hero-image {
   width: 45%;
-  height: 993px;
-  background: url(../images/accessories1.png) center center / cover no-repeat;
+  aspect-ratio: 3 / 4; /* Maintains proportions */
+  background: url('../images/accessories1.png') center center / cover no-repeat;
 }
 
+/* Tablet */
+@media (max-width: 1024px) {
 
-@media (max-width: 768px) {
   .accesssories_section {
-    flex-direction: column;
-  
+    height: 772px;
+
   }
+
+
+
 
   .hero-content,
   .hero-image {
     width: 100%;
-    height: auto;
   }
 
   .hero-image {
-      height: 395px; 
+    /* aspect-ratio: 3 / 2; */
+    height: 386px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .accesssories_section {
+    flex-direction: column;
+    padding: 20px 10px;
+    min-height: auto;
+  }
+
+  .hero-image {
+    aspect-ratio: 2 / 1;
   }
 
   .hero-content h1 {
     font-size: 22px;
+  }
+
+  .hero-content h2 {
+    font-size: 13px;
   }
 
   .hero-content p {
@@ -574,8 +592,24 @@ ul
   }
 }
 
+/* Small Mobile */
+@media (max-width: 480px) {
+  .hero-content {
+    padding: 20px 10px;
+  }
 
+  .hero-content h1 {
+    font-size: 18px;
+  }
 
+  .hero-content p {
+    font-size: 13px;
+  }
+
+  .hero-image {
+    aspect-ratio: 16 / 9;
+  }
+}
 
 
  
@@ -1536,41 +1570,43 @@ ul
     /* wishlist */
 
 
+.wishhero {
+  background: url(../images/back.jpg) center center / cover no-repeat;
+  height: auto;
+  padding: 100px 20px;
+  text-align: center;
+  color: white;
+  box-sizing: border-box;
+}
 
-    .wishhero {
-      background: url(../images/back.jpg);
-      height: 550px;
-      padding: 100px 20px;
-      text-align: center;
-      color: white;
-      background-size: cover;
-      background-position: center;
-    }
-    .wishhero h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-      
-    }
-    .wishhero p {
-      font-size: 16px;
-      margin-bottom: 20px;
-      color: white;
-    }
-    .wishhero button {
-      padding: 10px 24px;
-      border: 1px solid #fff;
-      background: transparent;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-    }
-   
-   
-    
- .wishlist-section {
+.wishhero h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.wishhero p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: white;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wishhero button {
+  padding: 10px 24px;
+  border: 1px solid #fff;
+  background: transparent;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.wishlist-section {
   padding: 40px 20px;
   max-width: 1500px;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .wishlist-section h2 {
@@ -1587,30 +1623,31 @@ ul
   justify-content: space-between;
 }
 
-/* Each product card – 3 in a row */
+/* Each product card – default 3 per row */
 .wishlist-product {
   background: #fff;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   padding: 16px;
-  flex: 1 1 calc(33.333% - 32px); /* 3 columns layout */
+  flex: 1 1 calc(33.333% - 32px);
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   position: relative;
   text-align: center;
   transition: transform 0.2s ease;
   max-width: calc(33.333% - 32px);
-  height: 668px; 
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
+
 .wishlist-product:hover {
   transform: translateY(-5px);
 }
 
 .wishlist-product img {
   width: 100%;
-  height: 515px ;
+  height: 515px;
   object-fit: cover;
   border-radius: 6px;
   margin-bottom: 10px;
@@ -1642,5 +1679,85 @@ ul
   transform: scale(1.2);
 }
 
+/* ==================== MEDIA QUERIES ==================== */
 
-  
+/* Tablet */
+@media (max-width: 1024px) {
+  .wishlist-product {
+    flex: 1 1 calc(50% - 16px);
+    max-width: calc(50% - 16px);
+  }
+
+  .wishlist-product img {
+    height: 400px;
+  }
+
+  .wishhero h1 {
+    font-size: 30px;
+  }
+
+  .wishhero p {
+    font-size: 15px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  #wishlistContainer {
+    justify-content: center;
+  }
+
+  .wishlist-product {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .wishlist-product img {
+    height: 300px;
+  }
+
+  .wishlist-section h2 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .wishhero h1 {
+    font-size: 26px;
+  }
+
+  .wishhero p {
+    font-size: 14px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .wishlist-section {
+    padding: 20px 10px;
+  }
+
+  .wishlist-product img {
+    height: 240px;
+  }
+
+  .wishlist-product h4 {
+    font-size: 16px;
+  }
+
+  .wishlist-product p {
+    font-size: 14px;
+  }
+
+  .wishhero h1 {
+    font-size: 22px;
+  }
+
+  .wishhero p {
+    font-size: 13px;
+  }
+
+  .wishhero button {
+    font-size: 14px;
+    padding: 8px 20px;
+  }
+}
